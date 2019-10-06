@@ -73,9 +73,9 @@ $ mongo
 
 ### Creación de cuenta Mailgun
 
-  -Crea una cuenta en https://www.mailgun.com/ 
-  -entra a Settings-->Security & Users
-  -Verifica tu API key
+  *Crea una cuenta en https://www.mailgun.com/ 
+  *entra a Settings-->Security & Users
+  *Verifica tu API key
 
 ## Configuraciones
 
