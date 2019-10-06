@@ -8,7 +8,7 @@ Toda la información requerida se encuentra en el siguiente link, véase : https
 Utilizaremos Centos 7 tal como se recomienda. 
 
 
-### Instalación de Node.js 6.x LTS en CentOS 7:
+#### Instalación de Node.js 6.x LTS en CentOS 7:
 
 Utilizaremos los comandos que vienen en las instrucciones de octave-online-server
 
@@ -18,7 +18,7 @@ $ sudo yum makecache
 $ sudo yum install nodejs
 ~~~
 
-## Instalación de Redis 
+### Instalación de Redis 
 
 Utilizaremos los comandos que vienen en las instrucciones de octave-online-server
 
@@ -34,7 +34,7 @@ $ sudo nano /etc/redis.conf
 # Cambia el valor a: "Ex"
 ~~~
 
-## Instalación de Git Server
+### Instalación de Git Server
 
 Para instalar Git, debe tener las siguientes bibliotecas de las que depende Git: curl, zlib, openssl, expat y libiconv. 
 
@@ -43,7 +43,7 @@ $ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
 $ yum install git
 ~~~
 
-## Instalación MongoDB
+### Instalación MongoDB
 Crea un archivo /etc/yum.repos.d/mongodb-org-4.2.repo para poder instalar MongoDB directamente usando yum:
 
 ~~~
@@ -71,5 +71,11 @@ $ mongo
 ~~~
 
 
-## Creación de cuenta Mailgun
+### Creación de cuenta Mailgun
+
+-Crea una cuenta en https://www.mailgun.com/ 
+-entra a Settings-->Security & Users
+-Verifica tu API key
+
+## Configuraciones
 
