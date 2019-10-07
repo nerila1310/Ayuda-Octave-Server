@@ -225,7 +225,7 @@ Una vez dentro de las configuraciones buscamos
 ~~~
 # requirepass foobared
 ~~~
-Descomentamos la instrucción y cambiamos la palabra "foobared" por la salida que nos mostro el comando **$ echo "octave-online-server" | sha256sum**
+Descomentamos la instrucción y cambiamos la palabra "foobared" por la salida que nos mostro el comando `$ echo "octave-online-server" | sha256sum`
 
 Después de configurar la contraseña, guarde y cierre el archivo y luego reinicie Redis:
 
