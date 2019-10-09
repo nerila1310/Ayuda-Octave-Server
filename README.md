@@ -76,11 +76,9 @@ $ mongo
 ~~~
 
 
-### Creación de cuenta Mailgun
+### Mailgun
 ~~~
   * Crea una cuenta en https://www.mailgun.com/ 
-  * entra a Settings-->Security & Users
-  * Verifica tu API key
 ~~~
 ## Configuraciones
 
@@ -151,7 +149,7 @@ worker: {
 }
 
 session: {
-	implementation: docker
+	implementation: SELinux
 }
 
 git: {
@@ -236,4 +234,87 @@ Para verificar el estatus de Redis escribimos
 ~~~
 $ sudo systemctl status redis
 ~~~
+
+### Mongo
+
+~~~
+mongo: {
+	hostname: localhost
+	port: 27019
+	db: oo
+}
+~~~
+
+Creamos la base de datos con el nombre "oo"
+~~~
+>mongo
+>use oo
+~~~
+
+### Mailgun
+~~~
+mailgun: {
+	api_key: xxxxxxxxx
+	domain: localhost
+}
+
+~~~
+Entra a Settings-->Security & Users
+Verifica tu API key
+Copiamos la clave Private_key en api_key
+
+
+
+## Instalación de dependencias y construcción
+
+En cada uno de los cinco directorios que contienen proyectos Node.js, ingrese y ejecute npm install:
+
+~~~
+$ cd shared && npm install
+$ cd back-filesystem && npm install
+
+Nota: si hay problemas al momento de ejecutar el comando, intenta
+    - Remover la carpeta node-gyp: rm -R /home/userName/.node-gyp
+    - Instalar manualmente la librería: node install -g node-gy
+
+$ cd back-master && npm install
+$ cd front && npm install
+$ cd client && npm install
+~~~
+Enlace el proyecto compartido a todos los demás
+Esto permite que todos los proyectos usen el código en el directorio compartido:
+
+~~~
+$ cd shared && npm link  
+$ cd back-filesystem && npm link @oo/shared
+$ cd back-master && npm link @oo/shared
+$ cd front && npm link @oo/shared
+$ cd client && npm link @oo/shared
+~~~
+Se necesita instalar las dependencias de Bower (del lado del cliente) para el proyecto del cliente:
+
+~~~
+$ cd client && npm run bower install
+~~~
+
+Finalmente, compile los proyectos de cliente y servidor frontal (el servidor posterior se ejecuta sin necesidad de ser construido):
+
+ Instalando GruntJS
+~~~
+$ sudo npm install -g grunt-cli
+~~~
+
+~~~
+$ cd client && npm run grunt
+$ cd front && npm run grunt
+~~~
+
+## Back Server
+
+A continuación vamos a construir Octave desde código funte siguiendo un procedimiento similar puesto en _dockerfiles/build-octave.dockerfile._
+
+
+
+
+
 
