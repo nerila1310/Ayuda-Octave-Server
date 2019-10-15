@@ -339,8 +339,26 @@ Si bien compilar paquetes de octava después de paquetes adicionales en centos7 
 
 configure: ADVERTENCIA: Biblioteca Qhull no encontrada. Esto dará como resultado la pérdida de funcionalidad de algunas funciones de geometría. 
 
+## SELinux
 
+Ejecuta
+~~~
+$ sudo yum install -y selinux-policy-devel policycoreutils-sandbox selinux-policy-sandbox libcgroup-tools
+~~~
 
+Asegúrese de que Node.js esté instalado y que las dependencias se descarguen para el proyecto compartido
 
+~~~
+$ cd shared && npm install
+~~~
 
+Ejecute todos los siguientes comandos make desde el directorio de proyectos.
+~~~
+
+$ sudo make install-cgroup
+$ sudo make install-selinux-policy
+$ sudo make install-selinux-bin
+$ sudo make install-site-m
+
+~~~
 
