@@ -311,7 +311,33 @@ $ cd front && npm run grunt
 
 ## Back Server
 
-A continuación vamos a construir Octave desde código funte siguiendo un procedimiento similar puesto en _dockerfiles/build-octave.dockerfile._
+A continuación vamos a construir Octave desde código funte siguiendo 
+     
+Vaya al directorio que contiene el código fuente del paquete y escriba './configure' para configurar el paquete para su sistema.
+~~~
+$ ./configure
+~~~
+
+Ejecutar 'configurar' puede llevar un tiempo. Mientras se ejecuta, imprime algunos mensajes que indican qué características está buscando. Luego compila el paquete. Opcionalmente, escriba 'make check' para ejecutar las autocomprobaciones que vienen con el paquete.
+
+~~~
+$ make
+$ hacer cheque
+~~~
+
+
+Escriba 'make install' para instalar los programas y cualquier archivo de datos y documentación. Al instalar en un prefijo propiedad de root, se recomienda que el paquete se configure y cree como un usuario normal, y solo la fase 'make install' se ejecute con privilegios de root.
+~~~
+$ make install
+~~~
+Puede ser necesario seguir el paquete adicional mientras se usa la distribución centos7 (junto con EPEL).
+~~~
+$ yum instalar qhull-devel hdf5-devel fftw-devel fftw fftw-libs fftw-libs-long glpk-devel suitesparse-devel arpack-devel qt-devel ibXcursor-devel libXi-devel libXinerama-devel libXrandr-devel libXvilla-gl2 qccint -devel gl-manpages libXdamage-devel libXext-devel libXfixes-devel libXxf86vm-devel libdrm-devel libxshmfence-devel mesa-libGL-devel mesa-libGL-devel mesa-libGLU-devel
+~~~
+
+Si bien compilar paquetes de octava después de paquetes adicionales en centos7 puede ayudar a resolver el problema de advertencia.
+
+configure: ADVERTENCIA: Biblioteca Qhull no encontrada. Esto dará como resultado la pérdida de funcionalidad de algunas funciones de geometría. 
 
 
 
