@@ -322,7 +322,7 @@ Ejecutar 'configurar' puede llevar un tiempo. Mientras se ejecuta, imprime algun
 
 ~~~
 $ make
-$ hacer cheque
+$ make check
 ~~~
 
 
