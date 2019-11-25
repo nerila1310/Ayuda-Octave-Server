@@ -340,9 +340,11 @@ $ cd front && npm run grunt
 
 ## Back Server
 
-A continuación vamos a construir Octave desde código funte siguiendo 
+A continuación vamos a construir Octave desde código funte:
+
+Descargamos la versión octave-4.2.1.tar.xz desde el siguiente link: https://ftp.gnu.org/gnu/octave/
      
-Vaya al directorio que contiene el código fuente del paquete y escriba './configure' para configurar el paquete para su sistema.
+Vaya al directorio que contiene el código fuente del paquete y escriba el siguiente comando para configurar el paquete para su sistema.
 ~~~
 $ ./configure
 ~~~
