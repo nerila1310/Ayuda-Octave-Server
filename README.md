@@ -20,8 +20,16 @@ $ sudo yum install nodejs
 
 ### Instalación de Redis 
 
-Utilizaremos los comandos que vienen en las instrucciones de octave-online-server
+Instalaremos unos prerequisitos para el sistema
+~~~
+$ sudo yum install epel-release yum-utils
+$ sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+$ sudo yum-config-manager --enable remi
 
+~~~
+
+
+Utilizaremos los comandos que vienen en las instrucciones de octave-online-server
 ~~~
 $ sudo yum install redis
 
