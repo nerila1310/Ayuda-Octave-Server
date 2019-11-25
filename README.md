@@ -291,6 +291,23 @@ Nota: si hay problemas al momento de ejecutar este comando, intenta hacer esto.
 
 $ cd back-master && npm install
 $ cd front && npm install
+
+Nota: Si hay problemas con el comando anterior, intenta:
+	
+	- Entra a la carpeta front, 
+	- abre con un editor de texto: /octave-online-server-master/front/package.json
+	...
+	"version": "0.0.0",
+  
+	"private": true,  <-- Agrega esta linea en el código
+  	
+	"description": "Front server for Octave Online",
+  	...
+	
+	- $ npm install --no-optional --no-shrinkwrap --no-package-lock
+
+
+
 $ cd client && npm install
 ~~~
 Enlace el proyecto compartido a todos los demás
