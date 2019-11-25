@@ -281,9 +281,13 @@ En cada uno de los cinco directorios que contienen proyectos Node.js, ingrese y 
 $ cd shared && npm install
 $ cd back-filesystem && npm install
 
-Nota: si hay problemas al momento de ejecutar el comando, intenta
-    - Remover la carpeta node-gyp: rm -R /home/userName/.node-gyp
-    - Instalar manualmente la librería: node install -g node-gy
+Nota: si hay problemas al momento de ejecutar este comando, intenta hacer esto.
+
+    - $ sudo yum -y install gcc
+    - $ sudo yum install gcc-c++
+    - $ sudo npm install -g node-gyp
+    - $ cd back-filesystem
+    - $ sudo npm install
 
 $ cd back-master && npm install
 $ cd front && npm install
