@@ -343,7 +343,65 @@ $ cd front && npm run grunt
 A continuación vamos a construir Octave desde código funte:
 
 Descargamos la versión octave-4.2.1.tar.xz desde el siguiente link: https://ftp.gnu.org/gnu/octave/
-     
+ 
+instalamos algunoas dependencias para Octave
+
+~~~
+
+$ sudo yum install -y epel-release yum-utils
+$ sudo yum-builddep -y octave
+$ sudo yum install -y \
+	mercurial \
+	libtool \
+	gcc-c++ \
+	make \
+	net-tools \
+	traceroute \
+	git \
+	tar \
+	lapack64-devel \
+	librsvg2-tools \
+	icoutils \
+	transfig
+
+~~~
+
+Al construir sin --disable-docs, se requieren los siguientes paquetes adicionales:
+
+~~~
+ $ sudo yum install -y texlive-collection-latexrecommended
+ $ sudo yum install -y texlive-metapost
+~~~
+
+Construye e instala libuv
+
+descarga libuv del siguiente link: https://github.com/libuv/libuv.git
+
+~~~
+$ cd libuv 
+$ sh autogen.sh 
+$ ./configure 
+$ make 
+$ make install
+~~~
+
+Construye e instala json-c con el parche de desinfección UTF-8 personalizado
+
+descarga json-c desde el siguiete link: https://github.com/vote539/json-c.git 
+	
+~~~
+$ cd json-c-master
+$ sh autogen.sh
+$ ./configure
+$ make 
+$ make install
+~~~
+
+
+
+
+
+ 
 Vaya al directorio que contiene el código fuente del paquete y escriba el siguiente comando para configurar el paquete para su sistema.
 ~~~
 $ ./configure
