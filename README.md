@@ -53,7 +53,7 @@ Para instalar Git, debe tener las siguientes bibliotecas de las que depende Git:
 
 ~~~
 $ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel asciidoc xmlto
-$ yum install git
+$ sudo yum install git
 ~~~
 
 ### Instalación MongoDB
