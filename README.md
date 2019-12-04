@@ -434,7 +434,6 @@ Esta es la parte mas tardada de la instalación asi que se paciente
 $ make
 $ sudo make install
 ~~~
-
 Instalamos algunos paquetes necesarios
 
 ~~~
@@ -451,6 +450,73 @@ $ sudo yum install lzip qhull-devel pcre-devel gnuplot texinfo bison byacc flex\
   gl2ps-devel java-1.8.0-openjdk-devel qt-devel qscintilla-devel\
   bzip2-devel atlas-devel libsndfile-devel portaudio-devel GraphicsMagick-c++-devel
 ~~~
+
+
+Ejecutamos el siguiente comando: Monkey-patch bug #42352
+~~~
+$ sudo touch /usr/local/share/octave/4.2.1/etc/macros.texi
+~~~
+
+Configuramos Monkey-patch json-c runtime errors PATH y LD_LIBRARY_PATH en CentOS 7
+~~~
+$ export PATH=$PATH:/usr/local/lib
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+~~~
+
+-> Instale algunos paquetes populares de Octave Forge.
+-> Tenga en cuenta que la instalación de sympy también implica la instalación de numpy, que es bastante grande, pero se requiere 	para el paquete simbólico, que es uno de los paquetes más populares en Octave Online.
+-> Instale 5 a la vez para que sea más fácil recuperarse de los errores de compilación. Si un paquete no se instala, intente 		construir la imagen nuevamente y podría funcionar la segunda vez.
+->La mayoría de los paquetes se cargan automáticamente a través de octaverc (desde la versión 4.2.1), excepto los siguientes 		paquetes que sombrean las funciones de la biblioteca central o son lentos de cargar: tsa, stk, ltfat y nan.
+-> Nota: La lista de paquetes se escribe en / usr / local / share / octave / octave_packages
+
+~~~
+$ sudo yum install -y \
+	units \
+	mpfr-devel \
+	portaudio-devel \
+	sympy \
+	patch
+	
+$ /usr/local/bin/octave -q --eval "\
+	pkg install -forge control; \
+	pkg install -forge signal; \
+	pkg install -forge struct; \
+	pkg install -forge image; \
+	pkg install -forge symbolic; "
+	
+$ /usr/local/bin/octave -q --eval "\
+	pkg install -forge io; \
+	pkg install -forge statistics; \
+	pkg install -forge optim; \
+	pkg install -forge general; "
+	
+$ /usr/local/bin/octave -q --eval "\
+	pkg install -forge linear-algebra; \
+	pkg install -forge geometry; \
+	pkg install -forge data-smoothing; \
+	pkg install -forge nan; \
+	pkg install -forge tsa; "
+	
+$ /usr/local/bin/octave -q --eval "\
+	pkg install -forge financial; \
+	pkg install -forge miscellaneous; \
+	pkg install -forge interval; \
+	pkg install -forge stk; \
+	pkg install -forge ltfat; "
+	
+$ /usr/local/bin/octave -q --eval "\
+	pkg install -forge fuzzy-logic-toolkit; \
+	pkg install -forge mechanics; \
+	pkg install -forge divand; \
+	pkg install -forge mapping; "
+~~~
+Algunos paquetes no se instalan correctamente desde Octave-Forge
+
+~~~
+
+~~~
+
+
 
 Si bien compilar paquetes de octave después de paquetes adicionales en centos7 puede ayudar a resolver el problema de advertencia.
 
