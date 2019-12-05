@@ -512,11 +512,21 @@ $ /usr/local/bin/octave -q --eval "\
 ~~~
 Algunos paquetes no se instalan correctamente desde Octave-Forge
 
-~~~
+Descarga los paquetes desde los siguientes enlaces
 
 ~~~
+https://bitbucket.org/odepkg/odepkg/get/default.tar.gz
 
+$  hg clone https://bitbucket.org/octave-online/octave-communications
+~~~
 
+Ingresa a la carpeta a la carpeta octave-communications y ejecuta el comando 'make install'
+
+Copia los paquetes con extension '.tar.gz' dentro de la carpeta desiganada para ello, y ejecuta los comandos
+~~~
+$ /usr/local/bin/octave -q --eval "pkg install odepkg.tar.gz; "
+$ /usr/local/bin/octave -q --eval "pkg install communications-1.2.1.1.tar.gz; "
+~~~
 
 Si bien compilar paquetes de octave después de paquetes adicionales en centos7 puede ayudar a resolver el problema de advertencia.
 
