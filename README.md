@@ -458,9 +458,28 @@ $ sudo touch /usr/local/share/octave/4.2.1/etc/macros.texi
 ~~~
 
 Configuramos Monkey-patch json-c runtime errors PATH y LD_LIBRARY_PATH en CentOS 7
+
+Crea las variables de entorno a nivel global en el archivo '/etc/profile'
+
+
 ~~~
-$ export PATH=$PATH:/usr/local/lib
-$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+$ sudo nano /etc/profile
+~~~
+Copia la final del archivo las siguientes variables de entorno
+
+~~~
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.el7_7.x86_64/
+export PATH=$PATH:$JAVA_HOME/bin
+export CLASSPATH=$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
+
+export PATH=$PATH:/usr/local/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+~~~
+
+Cargar las nuevas variables de entorno
+
+~~~
+$ source /etc/profile
 ~~~
 
 -> Instale algunos paquetes populares de Octave Forge.
